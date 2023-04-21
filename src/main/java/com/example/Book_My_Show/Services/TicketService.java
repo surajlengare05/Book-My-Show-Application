@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 
 
 import javax.mail.internet.MimeMessage;
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -97,6 +97,7 @@ public class TicketService
         showRepository.save(show);
         userRepository.save(user);
 
+        // Email Integration
         String body = "Movie Ticket Booked \n\n\n Movie name:  "+ticket.getMovieName()+"\n Booking ID:  "+ticket.getTicketId()+"\n Show Date & Time:  "+ticket.getShowDate()+" , "+ticket.getShowTime()+"\n Cinema Hall:  "
                 +ticket.getTheaterName()+"\n Location:  "+ticket.getShow().getTheater().getLocation()+" \n Seats:  "+ticket.getBookedSeats();
 
@@ -189,14 +190,14 @@ public class TicketService
             showSeatRepository.save(showSeat);
         }
 
-                                // mailing
+        // Email integration
         String body = "Movie Ticket has bee cancelled \n\n\n Movie name:  "+ticket.getMovieName()+"\n Booking ID:  "+ticket.getTicketId()+"\n Show Date & Time:  "+ticket.getShowDate()+" , "+ticket.getShowTime()+"\n Cinema Hall:  "
                 +ticket.getTheaterName()+"\n Location:  "+ticket.getShow().getTheater().getLocation()+" \n Seats:  "+ticket.getBookedSeats();
         body = body + "\n\n\nYou will receive refund of the booking amount into registered bank account within 24 hrs.";
 
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper=new MimeMessageHelper(mimeMessage,true);
-        mimeMessageHelper.setFrom("surajlengre.tp@gmail.com");
+       // mimeMessageHelper.setFrom("");
         mimeMessageHelper.setTo(user.getEmail());
         mimeMessageHelper.setText(body);
         mimeMessageHelper.setSubject("Movie Ticket cancelled");
