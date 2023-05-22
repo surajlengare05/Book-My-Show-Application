@@ -1,14 +1,15 @@
 package com.example.Book_My_Show.Services;
 
-import com.example.Book_My_Show.Controllers.TicketController;
+
 import com.example.Book_My_Show.Converters.MovieConverter;
 import com.example.Book_My_Show.Converters.TheaterConverter;
 import com.example.Book_My_Show.EntryDTOs.MovieEntryDto;
-import com.example.Book_My_Show.Enum.SeatType;
+
 import com.example.Book_My_Show.Model.*;
 import com.example.Book_My_Show.Repositories.*;
 import com.example.Book_My_Show.ResponseDTOs.MovieResponseDto;
 import com.example.Book_My_Show.ResponseDTOs.TheaterResponseDto;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
