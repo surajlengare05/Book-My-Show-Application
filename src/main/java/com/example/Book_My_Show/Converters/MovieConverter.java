@@ -6,6 +6,8 @@ import com.example.Book_My_Show.ResponseDTOs.MovieResponseDto;
 
 public class MovieConverter
 {
+    // make all methods Static , so that we can call them by className (without creating an object of class)
+
     public static Movie convertEntryDtoToEntity(MovieEntryDto movieEntryDto)
     {
         Movie movie = Movie.builder()

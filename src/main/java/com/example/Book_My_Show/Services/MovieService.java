@@ -110,8 +110,7 @@ public class MovieService
         }
         return revenue; */
     }
-
-    public String rateFlopOrHit(String movieName)
+public String rateFlopOrHit(String movieName)
     {
         int revenue = calculateRevenue(movieName);
         Movie movie = movieRepository.findByName(movieName);

@@ -26,11 +26,11 @@ public class Theater
     private String location;
 
 
-                            // Bidirectional parent-> Theater , child-> Show
+                            // Bidirectional   parent-> Theater , child-> Show
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
     private List<Show> showList = new ArrayList<>();
 
-                            // Bidirectional  parent-> Theater , child-> TheaterSeat
+                            // Bidirectional   parent-> Theater , child-> TheaterSeat
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
     private List<TheaterSeat> theaterSeatList = new ArrayList<>();
 }

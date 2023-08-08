@@ -51,13 +51,14 @@ public class Show
     @JoinColumn
     private Theater theater;
 
+                      // Bidirectional parent-> Show , child-> ShowSeat
+    @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+    private List<ShowSeat> listOfShowSeats = new ArrayList<>();
 
-                    // Bidirectional parent-> Show , child-> Ticket
+
+                     // Bidirectional parent-> Show , child-> Ticket
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
     private List<Ticket> listOfBookedTickets = new ArrayList<>();
 
-                    // Bidirectional parent-> Show , child-> ShowSeat
-    @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
-    private List<ShowSeat> listOfShowSeats = new ArrayList<>();
 
 }
